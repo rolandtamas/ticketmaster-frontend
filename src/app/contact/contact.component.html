@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Us</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+<body>
+    <div class="contact-section">
+        <h2>Contact Us</h2>
+        <form (ngSubmit)="processForm()" class="contact-form" method="POST" action="">
+            <input type="text" class="contact-form-text" placeholder="Full Name" [(ngModel)]="name" name="name" required minlength="3" #nameInput="ngModel">
+            <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+                Name is required and should be of 3 characters at least
+            </div>
+            <input type="email" class="contact-form-text" placeholder="Your email" [(ngModel)]="email" name="email" required email #emailInput="ngModel">
+            <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+                E-mail format is required
+            </div>
+            <textarea class="contact-form-text" placeholder="Your message" [(ngModel)]="message" name="message" required #messageInput="ngModel"></textarea>
+            <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
+                Message is required
+            </div>
+            <input type="submit" class="contact-form-button ">
+        </form>
+    </div>
+   
+</body>
+</html>
