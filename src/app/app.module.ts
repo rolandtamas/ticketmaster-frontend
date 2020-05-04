@@ -10,6 +10,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { MatchesComponent } from './matches/matches.component';
+import { BuyticketComponent } from './buyticket/buyticket.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MatchesComponent } from './matches/matches.component';
     NavMenuComponent,
     HomeComponent,
     ContactComponent,
-    MatchesComponent
+    MatchesComponent,
+    BuyticketComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -26,7 +28,8 @@ import { MatchesComponent } from './matches/matches.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent },
-      { path: 'matches', component: MatchesComponent }
+      { path: 'matches', component: MatchesComponent },
+      { path: 'buyticket/:id', component: BuyticketComponent }
     ])
   ],
   providers: [ContactService,MatchesService],

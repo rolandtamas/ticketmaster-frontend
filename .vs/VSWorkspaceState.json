@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\src",
     "\\src\\app",
-    "\\src\\app\\contact"
+    "\\src\\app\\buyticket",
+    "\\src\\app\\matches"
   ],
-  "SelectedNode": "\\src",
+  "SelectedNode": "\\src\\app\\matches\\matches.service.ts",
   "PreviewInSolutionExplorer": false
 }
