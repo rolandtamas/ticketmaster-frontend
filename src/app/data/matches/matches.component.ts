@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatchesService } from './matches.service';
-
+import {IMatch} from './match';
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
@@ -8,7 +8,7 @@ import { MatchesService } from './matches.service';
 })
 export class MatchesComponent implements OnInit {
 
-  public matches: Match[];
+  public matches: IMatch[];
   constructor(private matchesService: MatchesService) { }
 
   ngOnInit() {
@@ -18,8 +18,3 @@ export class MatchesComponent implements OnInit {
 
 }
 
-interface Match {
-  home: string,
-  away: string,
-  date: string
-}

@@ -8,8 +8,8 @@
   <div class="container">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let match of matches">
-        {{match.home}} vs {{match.away}} <br />
-        Starting at {{match.date}}
+        {{match.teamHost.teamName}} vs {{match.teamAway.teamName}} <br />
+        Starting at {{match.date | date: "dd/MM/yyyy HH:mm" }}
         <button type="button" class="btn btn-primary">Buy Ticket</button>
       </li>
     </ul>
