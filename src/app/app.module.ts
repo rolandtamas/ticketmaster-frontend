@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { DataModule } from './data/data.module';
 import { RouterModule } from '@angular/router';
+import { AuthService } from './_services/auth.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { RouterModule } from '@angular/router';
     NavMenuComponent,
     HomeComponent,
     ContactComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,7 +31,7 @@ import { RouterModule } from '@angular/router';
       { path: '', component: HomeComponent, pathMatch: 'full' }
         ])
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

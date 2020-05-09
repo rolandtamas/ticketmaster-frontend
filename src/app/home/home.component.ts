@@ -5,8 +5,22 @@ import { Component,OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  registerMode = false;
   constructor(){}
 
-  ngOnInit(){}
+  ngOnInit(){
+    this.registerMode = false;
+  }
+
+  registerToggle()
+  {
+    this.registerMode = true;
+  }
+
+  cancelRegisterMode(registerMode: boolean)
+  {
+    this.registerMode = registerMode;
+  }
+
 }
