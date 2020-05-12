@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class MatchesComponent implements OnInit {
 
   public matches: Match[];
-  public match_id: string;
   constructor(private matchesService: MatchesService, private router: Router) { }
 
   ngOnInit() {

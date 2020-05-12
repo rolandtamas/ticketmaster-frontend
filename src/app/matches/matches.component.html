@@ -10,7 +10,7 @@
       <li class="list-group-item" *ngFor="let match of matches">
         {{match.home}} vs {{match.away}} <br />
         Starting at {{match.date}}
-        <a [routerLink]="['/buyticket/',match.id]">
+        <a [routerLink]="['/buyticket/',match.id,match.home,match.away,match.date]">
           <button type="button" class="btn btn-primary">
             Buy Ticket
           </button></a>

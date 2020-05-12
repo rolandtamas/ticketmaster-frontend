@@ -3,7 +3,6 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\buyticket",
     "\\src\\app\\matches"
   ],
   "SelectedNode": "\\src\\app\\matches\\matches.service.ts",

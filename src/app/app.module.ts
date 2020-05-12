@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ContactService } from './contact/contact.service';
 import { MatchesService } from './matches/matches.service';
+import { BuyticketService } from './buyticket/buyticket.service';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -29,10 +30,10 @@ import { BuyticketComponent } from './buyticket/buyticket.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent },
       { path: 'matches', component: MatchesComponent },
-      { path: 'buyticket/:id', component: BuyticketComponent }
+      { path: 'buyticket/:id/:home/:away/:date', component: BuyticketComponent }
     ])
   ],
-  providers: [ContactService,MatchesService],
+  providers: [ContactService, MatchesService, BuyticketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
