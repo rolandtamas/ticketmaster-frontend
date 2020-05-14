@@ -1,9 +1,9 @@
 <header>
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow blue mb-3"
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">TicketMaster</a>
+      <a class="navbar-brand text-light" [routerLink]="['/']">TicketMaster</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,40 +20,37 @@
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow">
-          <li class="nav-item"
+          <li class="nav-item "
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link text-light" [routerLink]="['/']">Home</a>
           </li>
 
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/matches']">Matches</a>
+            <a class="nav-link text-light" [routerLink]="['/matches']">Matches</a>
           </li>
 
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/contact']">Contact Us</a>
+            <a class="nav-link text-light" [routerLink]="['/contact']">Contact Us</a>
           </li>
           <li>
-            <div *ngIf="loggedIn()" class="dropdown">
-              <a class="btn dropdown-toggle" href="#" role="button">
-               Welcome User!
+            <div *ngIf="loggedIn()" class="dropdown" dropdown>
+              <a class="btn dropdown-toggle text-light"  role="button" dropdownToggle> 
+               Welcome, {{authService.decodedToken.unique_name}}!
               </a>
             
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">My Tickets</a>
+              <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuLink" *dropdownMenu>
+                <a class="dropdown-item" [routerLink]="['/tickets']">My Tickets</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"> <i class="fa fa-user"></i>Edit Profile</a>
+                <a class="dropdown-item" [routerLink]="['/settings']"> <i class="fa fa-user"></i> Edit Profile</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><i class= "fa fa-sign-out"></i>Log Out</a>
+                <a class="dropdown-item" (click)='logout()'><i class= "fa fa-sign-out"></i> Log Out</a>
               </div>
             </div>
           </li>
-          <li class = "nav-item">
-            <a class="nav-link" (click)="logout()">Log Out</a>
-
-          </li>
+         
           <li class="nav-item">
             <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
               <input class="form-control mr-sm-2" type="text" name="username" #username="ngModel"

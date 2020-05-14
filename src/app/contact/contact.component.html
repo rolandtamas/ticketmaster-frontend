@@ -7,8 +7,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
 <body>
+    <h2 class="text-center text-primary">How Can We Help?</h2>
+    <hr>
     <div class="contact-section">
-        <h2>Contact Us</h2>
+       
         <form (ngSubmit)="processForm()" class="contact-form" method="POST" action="">
             <input type="text" class="contact-form-text" placeholder="Full Name" [(ngModel)]="name" name="name" required minlength="3" #nameInput="ngModel">
             <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
@@ -22,7 +24,7 @@
             <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
                 Message is required
             </div>
-            <input type="submit" class="contact-form-button ">
+            <input type="submit" class="btn btn-primary">
         </form>
     </div>
    

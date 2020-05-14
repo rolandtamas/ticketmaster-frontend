@@ -7,10 +7,10 @@
   <div *ngIf="!registerMode" class="text-center">
     <h1>Welcome to TicketMaster!</h1>
     <h3>Click on "Matches" to display available matches</h3>
-    <button class="btn btn-primary btn-lg mu-6" (click)='registerToggle()'> Register</button>
+    <button *ngIf="!this.authService.loggedIn()" class="btn btn-primary btn-lg mu-6" (click)='registerToggle()'> Register</button>
   </div>
 
-  <div *ngIf="registerMode" class="container">
+  <div *ngIf="registerMode && !this.authService.loggedIn()" class="container">
     <div class="row justify-content-center">
       <div class="col-4">
           <app-register (cancelRegister)='cancelRegisterMode($event)'></app-register>
