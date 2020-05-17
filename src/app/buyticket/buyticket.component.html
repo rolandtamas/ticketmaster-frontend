@@ -31,10 +31,10 @@
       <label for="sector">Select stadium sector</label>
       &nbsp;
       <select id="sector" [(ngModel)]="sector" name="sector" required #sectorInput="ngModel">
-        <option value="50">Sector A - 50 Euro</option>
-        <option value="85">Sector B - 85 Euro</option>
-        <option value="70">Sector C - 70 Euro</option>
-        <option value="45">Sector D - 45 Euro</option>
+        <option value="A">Sector A - 50 Euro</option>
+        <option value="B">Sector B - 85 Euro</option>
+        <option value="C">Sector C - 70 Euro</option>
+        <option value="D">Sector D - 45 Euro</option>
       </select>
       <div class="stadium-row-selector" *ngIf="sectorInput.value">
         <label for="row">Select row</label>
@@ -55,37 +55,29 @@
 
           <label for="ticketamount">No. of tickets &nbsp;</label>
           <input type="number" id="ticketamount" value="1" min="1" [(ngModel)]="amount" name="amount" required #amountInput="ngModel">
-          <div id="seats" *ngIf="amountInput.value>0" [(ngModel)]="seats" name="seats" required #seatsInput="ngModel" ngDefaultControl>
-            <label for="seats">Select seats &nbsp; </label>
-            <br>
-            <input type="checkbox" value="1">Seat 1
-            <input type="checkbox" value="2">Seat 2
-            <input type="checkbox" value="3">Seat 3
-            <input type="checkbox" value="4">Seat 4
-            <input type="checkbox" value="5">Seat 5
-            <input type="checkbox" value="6">Seat 6
-            <input type="checkbox" value="7">Seat 7
-            <input type="checkbox" value="8">Seat 8
-            <input type="checkbox" value="9">Seat 9
-            <input type="checkbox" value="10">Seat 10
-            <input type="checkbox" value="11">Seat 11
-            <input type="checkbox" value="12">Seat 12
-            <input type="checkbox" value="13">Seat 13
-            <input type="checkbox" value="14">Seat 14
-            <input type="checkbox" value="15">Seat 15
-            <input type="checkbox" value="16">Seat 16
-            <input type="checkbox" value="17">Seat 17
-            <input type="checkbox" value="18">Seat 18
-            <input type="checkbox" value="19">Seat 19
-            <input type="checkbox" value="20">Seat 20
-            <br>
-
-          </div>
+          
           <div *ngIf="sectorInput.value && rowInput.value">
-            <div class="total-price" *ngIf="amountInput.value>0">
-              <h4>Total Price: {{amountInput.value * sectorInput.value}} EUR </h4><br>
+
+            <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'A' ">
+              <h4>Total Price: {{amountInput.value * 50}} EUR </h4><br>
               <input type="submit" class="btn btn-success" value="Continue to Payment">
             </div>
+
+            <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'B' ">
+              <h4>Total Price: {{amountInput.value * 85}} EUR </h4><br>
+              <input type="submit" class="btn btn-success" value="Continue to Payment">
+            </div>
+
+            <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'C' ">
+              <h4>Total Price: {{amountInput.value * 70}} EUR </h4><br>
+              <input type="submit" class="btn btn-success" value="Continue to Payment">
+            </div>
+
+            <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'D' ">
+              <h4>Total Price: {{amountInput.value * 45}} EUR </h4><br>
+              <input type="submit" class="btn btn-success" value="Continue to Payment">
+            </div>
+
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ export class BuyticketService {
 }
 
 interface BoughtTicket {
-  id: string,
+  matchid: string,
   home: string,
   away: string,
   date: string,
@@ -23,7 +23,6 @@ interface BoughtTicket {
   lastname: string,
   email: string,
   sector: string,
-  row: number,
+  row: string,
   amount: number,
-  seats: number[],
 }
