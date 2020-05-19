@@ -10,10 +10,17 @@
       <li class="list-group-item" *ngFor="let match of matches">
         {{match.home}} vs {{match.away}} <br />
         Starting at {{match.date}}
-        <a [routerLink]="['/buyticket/',match.id,match.home,match.away,match.date]">
+        Tickets left: {{match.ticketCount}}
+        <div *ngIf="match.ticketCount>0 else soldout">
+        <a [routerLink]="['/buyticket/',match.id,match.home,match.away,match.date,match.ticketCount]">
           <button type="button" class="btn btn-primary">
             Buy Ticket
-          </button></a>
+          </button>
+        </a>
+        </div>
+        <ng-template #soldout>
+          <button type="button" class="btn btn-secondary" disabled style="cursor:default;">Sold out</button>
+        </ng-template>
       </li>
     </ul>
 

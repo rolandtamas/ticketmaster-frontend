@@ -12,6 +12,7 @@ export class BuyticketService {
   postData(ticket: BoughtTicket): Observable<any> {
     return this.httpclient.post(this.apiUrl, ticket);
   }
+  
 }
 
 interface BoughtTicket {

@@ -11,10 +11,15 @@ export class MatchesService {
   getData(): Observable<any> {
     return this.httpclient.get(this.apiUrl);
   }
+  putData(amount: number): Observable<any> {
+    return this.httpclient.put(this.apiUrl, amount);
+  }
+  
 }
 interface Match {
   id:string,
   home: string,
   away: string,
-  date: string
+  date: string,
+  ticketCount:number
 }

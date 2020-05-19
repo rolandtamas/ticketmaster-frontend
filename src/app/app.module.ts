@@ -30,7 +30,7 @@ import { BuyticketComponent } from './buyticket/buyticket.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent },
       { path: 'matches', component: MatchesComponent },
-      { path: 'buyticket/:id/:home/:away/:date', component: BuyticketComponent }
+      { path: 'buyticket/:id/:home/:away/:date/:ticketCount', component: BuyticketComponent }
     ])
   ],
   providers: [ContactService, MatchesService, BuyticketService],
