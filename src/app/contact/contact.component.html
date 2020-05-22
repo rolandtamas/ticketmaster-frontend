@@ -9,7 +9,7 @@
 <body>
     <div class="contact-section">
         <h2>Contact Us</h2>
-        <form (ngSubmit)="processForm()" class="contact-form" method="POST" action="">
+        <form (ngSubmit)="processForm()" class="contact-form" method="POST">
             <input type="text" class="contact-form-text" placeholder="Full Name" [(ngModel)]="name" name="name" required minlength="3" #nameInput="ngModel">
             <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
                 Name is required and should be of 3 characters at least

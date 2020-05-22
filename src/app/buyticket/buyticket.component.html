@@ -1,0 +1,92 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <h3>
+    {{match_home}} vs {{match_away}} <br>
+    Date: {{match_date}}
+  </h3>
+  <br>
+  <br>
+
+  <form (ngSubmit)="postData()" class="match-form">
+    <label>Enter your full name</label>
+    <div class="input-group">
+      <input type="text" aria-label="First name" placeholder="First Name" class="form-control" [(ngModel)]="firstname" name="firstname" required #firstnameInput="ngModel">
+      <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control" [(ngModel)]="lastname" name="lastname" required #lastnameInput="ngModel">
+      <div class="help is-error" *ngIf="firstnameInput.invalid && firstnameInput.dirty && lastnameInput.invalid && lastnameInput.dirty">
+        &nbsp; Name is required
+      </div>
+    </div>
+    <br />
+    <label>Enter your e-mail</label>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2" [(ngModel)]="email" name="email" required email #emailInput="ngModel">
+      <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+        &nbsp; E-mail format is required
+      </div>
+    </div>
+    <div class="stadium-sector-selector">
+      <label for="sector">Select stadium sector</label>
+      &nbsp;
+      <select id="sector" [(ngModel)]="sector" name="sector" required #sectorInput="ngModel">
+        <option value="A">Sector A - 50 Euro</option>
+        <option value="B">Sector B - 85 Euro</option>
+        <option value="C">Sector C - 70 Euro</option>
+        <option value="D">Sector D - 45 Euro</option>
+      </select>
+      <div class="stadium-row-selector" *ngIf="sectorInput.value">
+        <label for="row">Select row</label>
+        &nbsp;
+        <select id="row" [(ngModel)]="row" name="row" required #rowInput="ngModel">
+          <option value="1">Row 1</option>
+          <option value="2">Row 2</option>
+          <option value="3">Row 3</option>
+          <option value="4">Row 4</option>
+          <option value="5">Row 5</option>
+          <option value="6">Row 6</option>
+          <option value="7">Row 7</option>
+          <option value="8">Row 8</option>
+          <option value="9">Row 9</option>
+          <option value="10">Row 10</option>
+        </select>
+        <div class="stadium-seat-selector" *ngIf="rowInput.value">
+
+          <label for="ticketamount">No. of tickets &nbsp;</label>
+          <input type="number" id="ticketamount" value="1" min="1" [(ngModel)]="amount" name="amount" required #amountInput="ngModel">
+          
+          <div *ngIf="sectorInput.value && rowInput.value">
+
+            <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'A' ">
+              <h4>Total Price: {{amountInput.value * 50}} EUR </h4><br>
+              <input type="submit" class="btn btn-success" value="Continue to Payment">
+            </div>
+
+            <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'B' ">
+              <h4>Total Price: {{amountInput.value * 85}} EUR </h4><br>
+              <input type="submit" class="btn btn-success" value="Continue to Payment">
+            </div>
+
+            <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'C' ">
+              <h4>Total Price: {{amountInput.value * 70}} EUR </h4><br>
+              <input type="submit" class="btn btn-success" value="Continue to Payment">
+            </div>
+
+            <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'D' ">
+              <h4>Total Price: {{amountInput.value * 45}} EUR </h4><br>
+              <input type="submit" class="btn btn-success" value="Continue to Payment">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+  </form>
+</body>
+
+</html>
