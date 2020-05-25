@@ -1,6 +1,11 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"
+          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <<<<<<< HEAD
@@ -20,20 +25,6 @@
     <div class="input-group">
       <input type="text" aria-label="First name" placeholder="First Name" value="{{user.firstName}}" class="form-control" [(ngModel)]="firstname" name="firstname" required #firstnameInput="ngModel">
       <input type="text" aria-label="Last name" placeholder="Last Name" value="{{user.lastName}}" class="form-control"  [(ngModel)]="lastname" name="lastname" required #lastnameInput="ngModel">
-=======
-  <h3>
-    {{match_home}} vs {{match_away}} <br>
-    Date: {{match_date}}
-  </h3>
-  <br>
-  <br>
-
-  <form (ngSubmit)="postData()" class="match-form">
-    <label>Enter your full name</label>
-    <div class="input-group">
-      <input type="text" aria-label="First name" placeholder="First Name" class="form-control" [(ngModel)]="firstname" name="firstname" required #firstnameInput="ngModel">
-      <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control" [(ngModel)]="lastname" name="lastname" required #lastnameInput="ngModel">
->>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
       <div class="help is-error" *ngIf="firstnameInput.invalid && firstnameInput.dirty && lastnameInput.invalid && lastnameInput.dirty">
         &nbsp; Name is required
       </div>
@@ -41,11 +32,7 @@
     <br />
     <label>Enter your e-mail</label>
     <div class="input-group mb-3">
-<<<<<<< HEAD
       <input type="text" class="form-control" placeholder="E-mail" value="{{user.email}}" aria-label="E-mail"  aria-describedby="basic-addon2" [(ngModel)]="email" name="email" required email #emailInput="ngModel">
-=======
-      <input type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2" [(ngModel)]="email" name="email" required email #emailInput="ngModel">
->>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
       <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
         &nbsp; E-mail format is required
       </div>
@@ -54,17 +41,10 @@
       <label for="sector">Select stadium sector</label>
       &nbsp;
       <select id="sector" [(ngModel)]="sector" name="sector" required #sectorInput="ngModel">
-<<<<<<< HEAD
         <option value="A">Sector A - 50 EUR</option>
         <option value="B">Sector B - 85 EUR</option>
         <option value="C">Sector C - 70 EUR</option>
         <option value="D">Sector D - 45 EUR</option>
-=======
-        <option value="A">Sector A - 50 Euro</option>
-        <option value="B">Sector B - 85 Euro</option>
-        <option value="C">Sector C - 70 Euro</option>
-        <option value="D">Sector D - 45 Euro</option>
->>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
       </select>
       <div class="stadium-row-selector" *ngIf="sectorInput.value">
         <label for="row">Select row</label>
@@ -85,10 +65,6 @@
 
           <label for="ticketamount">No. of tickets &nbsp;</label>
           <input type="number" id="ticketamount" value="1" min="1" [(ngModel)]="amount" name="amount" required #amountInput="ngModel">
-          
-<<<<<<< HEAD
-          
-
           <div *ngIf="sectorInput.value && rowInput.value">
 
             <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'A' ">
@@ -147,10 +123,8 @@
               </div>
 
         </div>
-         
-=======
           <div *ngIf="sectorInput.value && rowInput.value">
-
+            
             <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'A' ">
               <h4>Total Price: {{amountInput.value * 50}} EUR </h4><br>
               <input type="submit" class="btn btn-success" value="Continue to Payment">
@@ -169,24 +143,22 @@
             <div class="total-price" *ngIf="amountInput.value>0 && sectorInput.value === 'D' ">
               <h4>Total Price: {{amountInput.value * 45}} EUR </h4><br>
               <input type="submit" class="btn btn-success" value="Continue to Payment">
+               
             </div>
 
           </div>
         </div>
->>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
       </div>
-    </div>
+    
 
     <br>
     <br>
-<<<<<<< HEAD
     <div class="text-center" *ngIf="selectedCreditCardId!=null">
       <input type="submit" class="btn-xl btn-success text-center" value="Buy Now">
     </div>
-=======
-
->>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
   </form>
+
+
 </body>
 
 </html>
