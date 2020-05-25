@@ -1,0 +1,36 @@
+<span class= "container text-center text-primary">
+<h2 class="text-center text-primary">Your Credit Cards</h2> 
+
+<button type='button' class='btn btn-float btn-primary' (click)='navigateToAddCreditCard()'>Add New Credit Card</button>
+</span>
+  <hr>
+<div class="container">
+  <ul class="list-group">
+    <h5 class='text-primary' *ngIf="user.creditCards.length == 0"> You haven't introduced any credit cards yet. </h5>
+    <li class="list-group-item text-primary" *ngFor="let creditCard of user.creditCards">
+      <span class='container'> <b>Credit Card Number: </b> {{creditCard.creditCardNumber}}</span>
+      
+      <span>
+      <button type="button" class="btn btn-float btn-primary ml-2" (click)="openCreditCard3d()">{{buttonText}}</button>
+      
+      <button type="button" class="btn btn-float btn-danger" style="margin-left:70px" (click)='removeCreditCard(creditCard.id)'>Remove</button>
+      
+      </span>
+      
+
+      
+          <div *ngIf="creditCard3dToggle" class="container">
+            <div class="row">
+              <div class="col-4 mt-4">
+      
+              <app-credit-card-3d [creditCardDetails]='creditCard'></app-credit-card-3d>
+              </div>
+            </div>
+          </div>
+        
+
+    </li>
+  </ul>
+
+</div>
+
