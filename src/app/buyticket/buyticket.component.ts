@@ -61,7 +61,7 @@ export class BuyticketComponent implements OnInit {
     if (this.match_ticketCount > 0) {
       this.buyticketservice.postData(data).subscribe(arg => console.log(arg));
       this.matchservice.putData(this.match_ticketCount).subscribe(arg => console.log(arg));
-      alert("Ticket bought successfully");
+      
     }
   }
 }
