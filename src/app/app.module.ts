@@ -1,13 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 
 
+=======
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { ContactService } from './contact/contact.service';
+import { MatchesService } from './matches/matches.service';
+import { BuyticketService } from './buyticket/buyticket.service';
+>>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+<<<<<<< HEAD
 import { RouterModule } from '@angular/router';
 import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
@@ -31,6 +40,10 @@ import { NgbdModalFocus, NgbdModalConfirm, NgbdModalConfirmAutofocus, NgbModalCo
 import { BuyticketComponent } from './buyticket/buyticket.component';
 import { SelectCreditCardComponent } from './buyticket/select-credit-card/select-credit-card/select-credit-card.component';
 
+=======
+import { MatchesComponent } from './matches/matches.component';
+import { BuyticketComponent } from './buyticket/buyticket.component';
+>>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
 
 @NgModule({
   declarations: [
@@ -38,6 +51,7 @@ import { SelectCreditCardComponent } from './buyticket/select-credit-card/select
     NavMenuComponent,
     HomeComponent,
     ContactComponent,
+<<<<<<< HEAD
     RegisterComponent,
     MatchesComponent,
     TicketsComponent,
@@ -52,11 +66,16 @@ import { SelectCreditCardComponent } from './buyticket/select-credit-card/select
     BuyticketComponent,
     SelectCreditCardComponent
 
+=======
+    MatchesComponent,
+    BuyticketComponent
+>>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     
     BsDropdownModule.forRoot(),
@@ -74,5 +93,16 @@ import { SelectCreditCardComponent } from './buyticket/select-credit-card/select
   ],
   bootstrap: [AppComponent],
   entryComponents: [NgbdModalConfirm, NgbdModalConfirmAutofocus,NgbModalConfirmDeleteCreditCard]
+=======
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'contact', component: ContactComponent },
+      { path: 'matches', component: MatchesComponent },
+      { path: 'buyticket/:id/:home/:away/:date/:ticketCount', component: BuyticketComponent }
+    ])
+  ],
+  providers: [ContactService, MatchesService, BuyticketService],
+  bootstrap: [AppComponent]
+>>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
 })
 export class AppModule { }

@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     ""
+=======
+    "",
+    "\\src",
+    "\\src\\app"
+>>>>>>> dcd8cd82814da2fab3b4e8f73adbb022b44bc823
   ],
-  "SelectedNode": "\\src",
+  "SelectedNode": "\\src\\app\\matches",
   "PreviewInSolutionExplorer": false
 }
