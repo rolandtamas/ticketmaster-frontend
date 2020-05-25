@@ -1,0 +1,31 @@
+<head>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+
+<body>
+  <h2 class="text-center text-primary">Your Purchased Tickets</h2>
+  <hr>
+  <div class="container">
+    <ul class="list-group">
+      <h5 class='text-primary' *ngIf="tickets.length == 0"> You haven't bought any tickets yet.</h5>
+      <div *ngIf="tickets.length">
+      <li class="list-group-item" *ngFor="let ticket of tickets">
+      
+      
+        <button type="button" class="btn btn-primary ml-2" [routerLink]="['ticket-form']" routerLinkActive="router-link-active" >Details</button>
+        <button type="button" class="btn btn-float btn-danger" style="margin-left:120px" (click)='cancelBoughtTicket(ticket.id)'>Cancel</button>
+      {{ticket.match.teamHost}} vs {{ticket.match.teamAway}} <br />
+      
+     
+   
+      Starting at {{ticket.match.date | date: "dd/MM/yyyy HH:mm" }}
+    
+  
+      
+      </li>
+    </div>
+    </ul>
+
+  </div>
+</body>

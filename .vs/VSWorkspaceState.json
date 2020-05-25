@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
+    "",
     "\\src\\app",
-    "\\src\\app\\buyticket",
-    "\\src\\app\\matches"
+    "\\src\\app\\home"
   ],
+  "SelectedNode": "\\src",
   "PreviewInSolutionExplorer": false
 }
