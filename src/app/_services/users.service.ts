@@ -9,7 +9,8 @@ import { IUser } from '../data/users/user';
   providedIn: 'root'
 })
 export class UsersService {
-  apiUrl:string = 'https://localhost:5001/user/byUsername';
+  apiUrl:string = 'https://localhost:5001/user/';
+  
   constructor(private httpclient: HttpClient) { }
 
   getData(username: string): Observable<IUser> {
@@ -18,8 +19,8 @@ export class UsersService {
    
    
    
-    return this.httpclient.get<IUser>(this.apiUrl, {headers: headers, params:params}).pipe(
-      tap(data => console.log('Current User Data' + JSON.stringify(data))));
+    return this.httpclient.get<IUser>(this.apiUrl + "byUsername", {headers: headers, params:params}).pipe(
+      tap(/* Print to console log*/));
   }
 private handleError<T> (operation = 'operation', result?: T)
 {
@@ -28,4 +29,13 @@ private handleError<T> (operation = 'operation', result?: T)
     return of (result as T);
   }
   }
+
+ updateData(model : any, username: string){
+   model.username= username;
+  var params = new HttpParams().set('model', model);
+  var  headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.token}`);
+ 
+   return this.httpclient.put(this.apiUrl, model, {headers: headers, params: params});
+
+ } 
 }

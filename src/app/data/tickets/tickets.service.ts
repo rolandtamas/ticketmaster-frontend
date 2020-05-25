@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   providedIn: 'root'
 })
 export class TicketsService {
-apiUrl:string = 'https://localhost:5001/ticket/byUsername';
+apiUrl:string = 'https://localhost:5001/ticket';
 constructor(private http: HttpClient,
   private alertify: AlertifyService,
   private authService: AuthService
@@ -22,11 +22,24 @@ getData(username: string): Observable<ITicket[]> {
   
   
   
-  return this.http.get<ITicket[]>(this.apiUrl, {headers:headers, params: params}).pipe(
+  return this.http.get<ITicket[]>(this.apiUrl+'/byUsername', {headers:headers, params: params}).pipe(
     tap(data => console.log('All Tickets of the current user: ' + JSON.stringify(data))),
     catchError(this.handleError<ITicket[]>('getData', [])));
     
 }
+
+cancelBoughtTicket(ticketId:string)
+    {
+      var emptyObject : any = {};
+        var params = new HttpParams().set('username', this.authService.decodedToken.unique_name)
+        .set('ticketId', ticketId);
+        var headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.token}`)
+        .set('Content-Length', '0');
+        return this.http.put(this.apiUrl+'/cancel', emptyObject, {headers:headers, params:params});
+        
+    }
+
+
 private handleError<T> (operation = 'operation', result?: T)
 {
 return (error: any) : Observable<T> => {

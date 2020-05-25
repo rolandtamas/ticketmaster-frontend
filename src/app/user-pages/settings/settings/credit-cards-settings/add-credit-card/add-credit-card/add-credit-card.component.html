@@ -1,0 +1,30 @@
+<form #registerForm="ngForm" (ngSubmit)="addCreditCard()">
+  <h2 class="text-center text-primary">Add New Credit Card</h2>
+  <hr>
+
+  <div class="form-group">
+    
+    <input type="text" class="form-control" required name="creditCardNumber" [(ngModel)]="model.creditCardNumber" placeholder="Credit Card Number">
+  </div>
+
+ 
+  <div class="form-group">
+    <input type="text" class="form-control" required name="creditCardHolder" [(ngModel)]="model.creditCardHolder" placeholder="Credit Card Holder">
+  </div>
+ 
+  <div class="form-group">
+    <input class="form-control" required name='expirationDate' [(ngModel)]="model.expirationDate" required  placeholder="Expiration Date">
+    
+  
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="cvv" [(ngModel)]="model.cvv" placeholder="CVV">
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success" type="submit">Add Credit Card</button>
+    <button class="btn btn-outline-secondary ml-1" type="button" (click)="cancel()">Cancel</button>
+  </div>
+  
+</form>

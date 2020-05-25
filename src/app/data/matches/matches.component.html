@@ -12,7 +12,11 @@
       <li class="list-group-item" *ngFor="let match of matches">
         {{match.teamHost}} vs {{match.teamAway}} <br />
         Starting at {{match.date | date: "dd/MM/yyyy HH:mm" }}
-        <button type="button" class="btn btn-primary" (click)="goToBuy()">Buy Ticket</button>
+        <a *ngIf="this.authService.loggedIn() && match.ticketCount>0" [routerLink]="['/buyticket/',match.id,match.teamAway,match.teamHost,match.date, match.ticketCount]">
+        <button type="button" class="btn btn-primary">{{buttonText}} <div style="font-size:x-small" > <div aria-hidden="true" *ngIf="match.ticketCount<=5">Only {{match.ticketCount}} Available</div> </div></button>
+      </a>
+      <button *ngIf="match.ticketCount==0" [disabled]="match.ticketCount==0" type="button" class="btn btn-secondary">Sold Out</button>
+      <button *ngIf="!this.authService.loggedIn() && match.ticketCount >0 " type="button" class="btn btn-primary" [disabled]="!this.authService.loggedIn()">{{buttonText}}</button>
       </li>
     </ul>
 

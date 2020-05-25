@@ -1,45 +1,40 @@
 <!-- Profile Settings-->
-<div class="col-lg-8 pb-5">
+<div class="col-lg-5 pb-5">
   <form class="row">
       <div class="col-md-6">
           <div class="form-group">
               <label for="account-fn">First Name</label>
-              <input class="form-control" type="text" id="account-fn" value="{{user.firstName}}" required="">
+              <input class="form-control" type="text" id="account-fn" value="{{user.firstName}}" required="" [(ngModel)]="model.firstName" name="firstName">
           </div>
       </div>
       <div class="col-md-6">
           <div class="form-group">
               <label for="account-ln">Last Name</label>
-              <input class="form-control" type="text" id="account-ln" value="{{user.lastName}}" required="">
+              <input class="form-control" type="text" id="account-ln" value="{{user.lastName}}" required="" [(ngModel)]="model.lastName" name="lastName">
           </div>
       </div>
       <div class="col-md-6">
           <div class="form-group">
               <label for="account-email">E-mail Address</label>
-              <input class="form-control" type="email" id="account-email" value="daniel.adams@example.com" disabled="">
+              <input name='email' class="form-control" type="email" id="account-email" value="{{user.email}}" [(ngModel)]="model.email" name="email">
+
           </div>
       </div>
       
       <div class="col-md-6">
           <div class="form-group">
               <label for="account-pass">New Password</label>
-              <input class="form-control" type="password" id="account-pass">
+              <input class="form-control" type="password" id="account-pass" [(ngModel)]="model.password" name="password">
           </div>
       </div>
-      <div class="col-md-6">
-          <div class="form-group">
-              <label for="account-confirm-pass">Confirm Password</label>
-              <input class="form-control" type="password" id="account-confirm-pass">
-          </div>
-      </div>
+     
       <div class="col-12">
           <hr class="mt-2 mb-3">
           <div class="d-flex flex-wrap justify-content-between align-items-center">
-              <div class="custom-control custom-checkbox d-block">
-                  <input class="custom-control-input" type="checkbox" id="subscribe_me" checked="">
-                  <label class="custom-control-label" for="subscribe_me">Subscribe me to Newsletter</label>
-              </div>
-              <button class="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Update Profile</button>
+              <button class="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success"
+              data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly." (click)="updateProfile()">
+              Update Profile
+            </button>
           </div>
       </div>
   </form>

@@ -4,5 +4,6 @@ export interface IMatch {
   date: Date;
   teamAway: string;
   teamHost: string;
+  ticketCount: number;
   }
   
